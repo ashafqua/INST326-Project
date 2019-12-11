@@ -23,3 +23,6 @@ In order to run the app on your computer:
     - The input does not take acronyms for states, although allows USA. 
 6. Press the "Get Weather" button
 7. Enjoy! 
+
+**External Links:**
+API retrieved from : https://openweathermap.org/api
