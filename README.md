@@ -22,4 +22,4 @@ In order to run the app on your computer:
     - Ex. College Park, Maryland or Islamabad, Pakistan. 
     - The input does not take acronyms for states, although allows USA. 
 6. Press the "Get Weather" button
-Enjoy! 
+7. Enjoy! 
