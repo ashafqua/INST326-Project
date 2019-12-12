@@ -1,8 +1,10 @@
-#!/usr/bin/env python
-# coding: utf-8
-
-# In[1]:
-
+#################################################
+#                    INST326                    #
+#                  12/11/2019                   #
+#        Aisha Koroma and Ayesha Shafquat       #
+#                 Final Project                 #
+#              Weather application              #
+#################################################
 
 #importing modules
 import requests
@@ -102,7 +104,7 @@ root.title("Gui Weather App!")
 canvas = tk.Canvas(root, height=HEIGHT, width=WIDTH)
 canvas.pack()
 
-background_image = tk.PhotoImage(file="clouds.png")
+background_image = tk.PhotoImage(file="background.jpg")
 background_label = tk.Label(root, image=background_image)
 background_label.place(relwidth=1, relheight=1)
   
