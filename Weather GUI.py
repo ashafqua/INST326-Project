@@ -44,7 +44,6 @@ def response_format(weather):
         longitude = weather['coord']['lon']
         icon = weather['weather'][0]['icon']
         
-        #icon = set_weather_icon(self, label, weather)
         # print formatting for GUI interface
         final_str = """
 City: {}
@@ -57,10 +56,7 @@ Local Coordinates: ({:.2f}, {:.2f})
 High Temperature: {}°F
 Low Temperature: {}°F
 """.format(name, description, temperature, wind_speed, wind_dir, humidity, latitude, longitude, hightemp, lowtemp)
-    #icon = "clouds"
-    #file = "{}.png".format(icon)
-    #img = Image.open(icon)
-    #icon= img.show()
+    
     # if error found this is the return statement
     except:
        final_str = 'There was a problem retrieving that information'
@@ -87,9 +83,10 @@ def wind_direction_convert(degree):
         wind_direction = 'Northwest'
     return wind_direction
 
-# function for weather icon
+# function for weather icon implementation
 def open_image(icon):
     size = int(lower_frame.winfo_height()*0.35)
+    #retrieving icon image from local file 'img'
     img = ImageTk.PhotoImage(Image.open('./img/'+icon+'.png').resize((size, size)))
     weather_icon.delete("all")
     weather_icon.create_image(0,0, anchor='nw', image=img)
@@ -104,6 +101,7 @@ root.title("Gui Weather App!")
 canvas = tk.Canvas(root, height=HEIGHT, width=WIDTH)
 canvas.pack()
 
+#styling interface
 background_image = tk.PhotoImage(file="background.jpg")
 background_label = tk.Label(root, image=background_image)
 background_label.place(relwidth=1, relheight=1)
