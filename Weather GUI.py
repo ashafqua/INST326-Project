@@ -22,8 +22,11 @@ def get_weather(city):
     params = {'APPID': key, 'q': city, 'units': 'imperial'}
     response = requests.get(url, params=params)
     data = response.json()
+    #for later use. calls response_format function and inserts result text in label frame
     label['text'] = response_format(data)
+    #for later use. retreives weather icons from API 
     icon = data['weather'][0]['icon']
+    #for later use. calls function for weather icon
     open_image(icon)
     
 # function that retrieves weather information     
@@ -31,18 +34,17 @@ def response_format(weather):
     #test block of code for errors using try method so the program doesnt crash
     try:
         # variable storage also
-        name = weather['name']
-        description = weather['weather'][0]['description']
-        temperature = weather['main']['temp']
-        wind_speed = weather['wind']['speed']
-        wind_dir = weather['wind']['deg']
+        name = data['name']
+        description = data['weather'][0]['description']
+        temperature = data['main']['temp']
+        wind_speed = data['wind']['speed']
+        wind_dir = data['wind']['deg']
         wind_dir = wind_direction_convert(wind_dir)
-        humidity = weather['main']['humidity']
-        hightemp = int(weather['main']['temp_max'])
-        lowtemp = int(weather['main']['temp_min'])
-        latitude = weather['coord']['lat']
-        longitude = weather['coord']['lon']
-        icon = weather['weather'][0]['icon']
+        humidity = data['main']['humidity']
+        hightemp = int(data['main']['temp_max'])
+        lowtemp = int(data['main']['temp_min'])
+        latitude = data['coord']['lat']
+        longitude = data['coord']['lon']
         
         # print formatting for GUI interface
         final_str = """
@@ -63,21 +65,21 @@ Low Temperature: {}°F
     return final_str
     
 # function for converting wind direction    
-def wind_direction_convert(degree):
-#Takes in the variable wind_dir and converts the numeric value to its corresponding cardinal direction
-    if degree >= 337.501 or degree <= 22.5:
+def wind_direction_convert(wind_dir):
+#Takes in the variable wind_dir and converts the numeric value(degree) to its corresponding cardinal direction
+    if wind_dir >= 337.501 or wind_dir <= 22.5:
         wind_direction = 'North'
-    elif degree >= 22.501 and degree <= 65.5:
+    elif wind_dir >= 22.501 and wind_dir <= 65.5:
         wind_direction = 'Northeast'
-    elif degree >= 65.501 and degree <= 112.5:
+    elif wind_dir >= 65.501 and wind_dir <= 112.5:
         wind_direction = 'East'
-    elif degree >= 112.501 and degree <= 157.5:
+    elif wind_dir >= 112.501 and wind_dir <= 157.5:
         wind_direction = 'Southeast'
-    elif degree >= 157.501 and degree <= 202.5:
+    elif wind_dir >= 157.501 and wind_dir <= 202.5:
         wind_direction = 'South'
-    elif degree >= 202.501 and degree <= 247.5:
+    elif wind_dir >= 202.501 and wind_dir <= 247.5:
         wind_direction = 'Southwest'
-    elif degree >= 247.501 and degree <= 292.5:
+    elif wind_dir >= 247.501 and wind_dir <= 292.5:
         wind_direction = 'West'
     else:
         wind_direction = 'Northwest'
