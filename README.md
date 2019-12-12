@@ -1,4 +1,4 @@
-# Object Oriented Programming 
+# Object Oriented Programming Final Project
 
 **Application:** Weather Forecaster
 
@@ -26,3 +26,7 @@ In order to run the app on your computer:
 
 **External Links:**
 API retrieved from : https://openweathermap.org/api
+
+
+December 12, 2019 
+University of Maryland, Ischool 
