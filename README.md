@@ -29,4 +29,4 @@ API retrieved from : https://openweathermap.org/api
 
 
 December 12, 2019 
-University of Maryland, Ischool 
+University of Maryland, ischool 
